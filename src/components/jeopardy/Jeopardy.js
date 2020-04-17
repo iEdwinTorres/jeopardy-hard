@@ -36,7 +36,7 @@ class Jeopardy extends Component {
 			score -= this.props.pointValue;
 		}
 		//console.log(score)
-		this.props.answeredQuestion(this.props.question, this.state.score, score);
+		this.props.answeredQuestion(this.props.question, this.props.solution, answer, this.state.score, score);
 		this.setState({ score, answer: "" });
 		this.props.getQuestion();
 	};
