@@ -21,8 +21,8 @@ class Jeopardy extends Component {
 		this.props.getQuestion();
 	}
 
-	handelChange = (e) => {
-		this.setState({ [e.target.name]: e.taget.value });
+	handleChange = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	handleAnswer = (e) => {
@@ -30,23 +30,23 @@ class Jeopardy extends Component {
 		let score = this.state.score;
 		const answer = cleanString(this.state.answer);
 		const solution = cleanString(this.props.solution);
-		if (answer == solution) {
+		if (answer === solution) {
 			score += this.props.pointValue;
 		} else {
 			score -= this.props.pointValue;
 		}
 		//console.log(score)
-		this.props.answeredQuestion(this.props.question, this.state.score, score)
-		this.setState({ score, answer:'' });
-		this.props.getQuestion()
+		this.props.answeredQuestion(this.props.question, this.state.score, score);
+		this.setState({ score, answer: "" });
+		this.props.getQuestion();
 	};
 
 	handleSkip = (e) => {
 		this.props.getQuestion();
-	}
+	};
 
 	render() {
-		console.log(this.props)
+		console.log(this.props);
 		return (
 			<div>
 				<Display
@@ -58,7 +58,9 @@ class Jeopardy extends Component {
 					handleChange={this.handleChange}
 					handleSkip={this.handleSkip}
 				/>
-				<div><h5>{JSON.stringify(this.props.answeredQuestions)}</h5></div>
+				<div>
+					<h5>{JSON.stringify(this.props.answeredQuestions)}</h5>
+				</div>
 			</div>
 		);
 	}
