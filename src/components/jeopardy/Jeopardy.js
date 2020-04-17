@@ -30,27 +30,35 @@ class Jeopardy extends Component {
 		let score = this.state.score;
 		const answer = cleanString(this.state.answer);
 		const solution = cleanString(this.props.solution);
-		if (answer === solution) {
+		if (answer == solution) {
 			score += this.props.pointValue;
 		} else {
 			score -= this.props.pointValue;
 		}
-		this.props.answredQuestion(this.props.question, this.state.score, score);
-		this.setState({ score, answer: "" });
-		this.props.getQuestion();
+		//console.log(score)
+		this.props.answeredQuestion(this.props.question, this.state.score, score)
+		this.setState({ score, answer:'' });
+		this.props.getQuestion()
 	};
 
+	handleSkip = (e) => {
+		this.props.getQuestion();
+	}
+
 	render() {
+		console.log(this.props)
 		return (
 			<div>
 				<Display
 					question={this.props.question}
-					score={this.props.score}
-					categoty={this.props.categoty}
-					pointValue={this.props.pointValue}
+					score={this.state.score}
+					category={this.props.category}
+					pv={this.props.pointValue}
 					handleAnswer={this.handleAnswer}
-					handleChange={this.handelChange}
+					handleChange={this.handleChange}
+					handleSkip={this.handleSkip}
 				/>
+				<div><h5>{JSON.stringify(this.props.answeredQuestions)}</h5></div>
 			</div>
 		);
 	}
@@ -59,10 +67,10 @@ class Jeopardy extends Component {
 const mapStateToProps = (state) => ({
 	question: state.question,
 	score: state.score,
-	categoty: state.categoty,
+	category: state.category,
 	pointValue: state.pointValue,
 	solution: state.solution,
-	answredQuestions: state.answredQuestions,
+	answeredQuestions: state.answeredQuestions,
 });
 
 const mapDispatchToProps = (dispatch) => {

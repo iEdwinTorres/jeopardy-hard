@@ -12,13 +12,15 @@ body {
 	justify-content: center;
 
 	background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+
+	text-align: center;
 }
 
 .App {
 	background: rgba(0, 0, 0, 0.2);
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	padding: 1rem 2rem;
-	width: 16rem;
+	width: 20rem;
 	height: rem;
 }
 
@@ -42,7 +44,7 @@ button {
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	color: white;
 	font-size: 1rem;
-	width: 100%;
+	margin-top: 1rem;
 }
 
 .Welcome {
@@ -66,4 +68,30 @@ button {
 .Navigation a {
 	display: block;
 	padding: 4px;
+}
+
+.Clue {
+	background: #0000c3;
+	padding: 1rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.Clue h4 {
+	width: 100%;
+	color: #f8fdff;
+	font-family: "Libre Baskerville", serif;
+	text-shadow: 2px 2px 5px black;
+	font-size: 15pt;
+}
+
+.Value h1 {
+	font-family: "Questrial", sans-serif;
+	font-family: "DM Sans", sans-serif;
+	font-family: "Anton", sans-serif;
+	letter-spacing: 1px;
+	font-size: 3rem;
+	padding-bottom: 0rem;
+	margin-bottom: 0.5rem;
+	margin-top: 0rem;
 }
